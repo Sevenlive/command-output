@@ -11,7 +11,8 @@ const shellArgs = {
   sh: ['-e', '-c'],
   python: ['-c'],
   pwsh: ['-command', '.'],
-  powershell: ['-command', '.']
+  powershell: ['-command', '.'],
+  R: ['-e']
 }
 
 class RecordStream extends Transform {
@@ -43,6 +44,7 @@ function run (command, shell) {
 
     // Execute the command
     const cmd = spawn(shell, [...args, command])
+    core.debug(cmd)
 
     // Record stream output and pass it through main process
     cmd.stdout.pipe(outRec).pipe(process.stdout)
