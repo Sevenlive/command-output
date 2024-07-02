@@ -12,7 +12,8 @@ const shellArgs = {
   python: ['-c'],
   pwsh: ['-command', '.'],
   powershell: ['-command', '.'],
-  R: ['-e']
+  R: ['-e'],
+  Rscript: ['-e']
 }
 
 class RecordStream extends Transform {
